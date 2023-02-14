@@ -2,8 +2,14 @@ import { defineConfig } from "cypress";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
 import * as createBundler from "@bahmutov/cypress-esbuild-preprocessor";
+import { config as loadEnv } from "dotenv";
+
+loadEnv();
 
 export default defineConfig({
+  env: {
+    ewaas_url: process.env.EWAAS_URL,
+  },
   e2e: {
     specPattern: "**/*.feature",
     async setupNodeEvents(on, config) {
