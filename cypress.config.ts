@@ -1,13 +1,9 @@
-const { defineConfig } = require("cypress");
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
-const {
-  addCucumberPreprocessorPlugin,
-} = require("@badeball/cypress-cucumber-preprocessor");
-const {
-  createEsbuildPlugin,
-} = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+import { defineConfig } from "cypress";
+import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
+import * as createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     specPattern: "**/*.feature",
     async setupNodeEvents(on, config) {
