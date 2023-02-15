@@ -9,6 +9,9 @@ loadEnv();
 export default defineConfig({
   env: {
     ewaas_url: process.env.EWAAS_URL,
+    oauth2_url: process.env.OAUTH2_URL,
+    admin_email: process.env.ADMIN_EMAIL,
+    admin_password: process.env.ADMIN_PASSWORD,
   },
   e2e: {
     specPattern: "**/*.feature",
